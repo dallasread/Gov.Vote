@@ -5,6 +5,11 @@ var Route = require('../../utils/route'),
         },
         partials: {
             sidebar: require('../../application/sidebar.bars')
+        },
+        helpers: {
+            'html-safe': function htmlSafe(a) {
+                return document.createTextNode(a).textContent;
+            }
         }
     };
 
