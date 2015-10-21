@@ -1,0 +1,15 @@
+.container {
+    @include clearfix();
+
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+
+    &.container-medium {
+        max-width: 780px;
+    }
+
+    // &.container-narrow {
+    //     max-width: 580px;
+    // }
+}

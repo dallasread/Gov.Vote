@@ -1,0 +1,33 @@
+.columns {
+    @include clearfix();
+
+    display: table-row;
+
+    .column {
+        display: table-cell;
+        padding: 0 2%;
+    }
+
+    .half-column {
+        width: 50%;
+    }
+
+    .third-column {
+        width: 33.3%;
+    }
+
+    .fourth-column {
+        width: 25%;
+    }
+}
+
+@media (max-width: 600px) {
+    .columns {
+        display: block;
+
+        .column {
+            width: 100% !important;
+            display: block;
+        }
+    }
+}

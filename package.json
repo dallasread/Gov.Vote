@@ -1,0 +1,33 @@
+{
+  "name": "gov.vote",
+  "version": "1.0.0",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dallas Read",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-header": "^1.7.1",
+    "gulp-if": "^1.2.5",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.0",
+    "stringify": "^3.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^3.24.0"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "bars": "^0.1.9",
+    "generate-js-bindings": "^1.0.10",
+    "generate-js-custom-element": "0.0.5",
+    "jQuery": "^1.7.4",
+    "jquery": "^2.1.4"
+  }
+}

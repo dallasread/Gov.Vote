@@ -1,0 +1,46 @@
+.show-menu {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+@media (min-width: 680px) {
+    .mobile-only {
+        display: none;
+    }
+
+    body {
+        #topbar .show-menu {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 680px) {
+    body.show-menu {
+        #topbar .menu {
+            display: block;
+            float: none;
+            clear: both;
+            padding-bottom: 10px;
+
+            li {
+                display: block;
+
+                a {
+                    display: block;
+                    text-align: center;
+                    line-height: 3.5;
+                }
+            }
+        }
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    #topbar .menu {
+        display: none;
+    }
+}

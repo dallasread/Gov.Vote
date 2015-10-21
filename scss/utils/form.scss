@@ -1,0 +1,31 @@
+form {
+    .field, .cta_field {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input:not([type="checkbox"]), textarea, select {
+            width: 100%;
+            border: 1px solid #ddd;
+            outline: none;
+            resize: none;
+            padding: 10px;
+            font-size: 17px;
+            font-family: Helvetica Neue, Helvetica, "Lucida Grande","Lucida Sans Unicode","Lucida Sans", Arial,sans-serif;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        textarea {
+            height: 15em;
+        }
+    }
+
+}

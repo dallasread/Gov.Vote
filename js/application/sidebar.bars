@@ -1,0 +1,16 @@
+<a class="show-sidebar">
+    <i class="icon-home"></i>
+</a>
+
+<div class="sidebar">
+    <div class="item meta-item">
+        <span data-go="/">CA.GOV.VOTE</span>
+        <img src="assets/imgs/ca.png">
+    </div>
+
+    {{#each app/issues}}
+        <span data-go="/issues/{{id}}" class="item">
+            {{title}}
+        </span>
+    {{/each}}
+</div>

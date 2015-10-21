@@ -1,0 +1,131 @@
+.icon-home {
+    position: absolute;
+    z-index: 999;
+    color: #ddd;
+    right: 15px;
+    top: 15px;
+}
+
+.issue {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 100px;
+
+    h1 {
+
+    }
+
+    p {
+        margin-top: 40px;
+    }
+
+    .learn-more {
+        font-size: 13px;
+        display: inline-block;
+        color: #bbb;
+        margin-left: 20px;
+    }
+
+    ul {
+        margin-top: 50px;
+
+        .learn-more {
+            margin-left: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            clear: both;
+        }
+
+        i {
+            font-size: 28px;
+            vertical-align: middle;
+            margin-right: 10px;
+            color: #bbb;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 22px;
+            cursor: pointer;
+            color: #333;
+
+            &.checked, &.checked i {
+                color: #02bf0f;
+
+                .icon-close {
+                    display: none;
+                }
+
+                .icon-check {
+                    display: inline-block;
+                }
+            }
+
+            .icon-check {
+                display: none;
+            }
+        }
+    }
+
+    button {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .issue {
+        padding: 70px 40px;
+
+        h1 {
+            font-size: 23px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        ul {
+            li {
+                @include clearfix();
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-size: 18px;
+                line-height: 1.2;
+
+                span {
+                    float: right;
+                    width: calc(100% - 43px);
+                }
+            }
+
+            .learn-more {
+                clear: both;
+                float: left;
+                margin-left: 43px;
+                // margin-top: 5px;
+            }
+        }
+
+        .actions {
+            display: block;
+            width: 100%;
+            text-align: center;
+
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 788px) {
+    .issue {
+        padding: 70px 15px;
+    }
+}

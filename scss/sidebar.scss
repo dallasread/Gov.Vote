@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, Sans Serif;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.simple-list {
+    a {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        text-transform: uppercase;
+    }
+
+    li:first-child a {
+        border-top: 1px solid #ddd;
+    }
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    font-family: Palatino, Georgia, Times New Roman, Times, Sans Serif;
+    color: #777;
+    text-align: justify;
+}
+
+[data-go] {
+    cursor: pointer;
+}
+
+.gray-block {
+    background: #fafafa;
+    padding: 20px;
+    color: #777;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+    font-family: Palatino, Georgia, Times New Roman, Times, Sans Serif;
+    font-style: oblique;
+}
+
+
+.icon-home {
+    display: none;
+}
+
+.wrapper {
+    margin-left: 350px;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 350px;
+    background: #fff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    color: #777;
+    border-right: 1px solid #ddd;
+    width: 350px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .item {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+
+        &.meta-item {
+            color: #fff;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            background: #E90606;
+            border-bottom: 0;
+
+            img {
+                float: right;
+                display: none;
+            }
+        }
+
+        &.active, &.parent-of-active {
+            font-weight: bold;
+            color: #333;
+            background: #fafafa;
+        }
+    }
+}
+
+@media (max-width: 788px) {
+    .loading {
+        left: 0;
+    }
+
+    .sidebar {
+        left: -100%;
+        width: 100%;
+    }
+
+    .wrapper {
+        margin-left: 0;
+    }
+
+    .icon-home {
+        display: block;
+    }
+}
