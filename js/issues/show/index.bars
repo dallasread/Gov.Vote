@@ -22,7 +22,7 @@
         {{#with issue}}
             <h1>{{title}}</h1>
 
-            <div class="voter">
+            <form class="vote" data-issue-id="{{id}}">
                 <p>{{description}}</p>
                 <ul class="options">
                     {{#each stances}}
@@ -42,11 +42,11 @@
 
                 <div class="actions">
                     <button class="btn btn-medium btn-gray">
-                        Submit My Vote
+                        Save My Vote
                     </button>
-                    <a href="javascript:;" class="learn-more">Suggest An Answer</a>
+                    <a data-go="/issues/{{id}}/stances/suggest" class="learn-more">Suggest An Answer</a>
                 </div>
-            </div>
+            </form>
         {{else}}
             <h1>Welcome to the new democracy.</h1>
             <div class="voter">

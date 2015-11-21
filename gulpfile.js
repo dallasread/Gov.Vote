@@ -10,7 +10,8 @@ var browserify = require('browserify'),
     stringify = require('stringify'),
     argv = require('yargs').argv,
     header = require('gulp-header'),
-    production = !!argv.production;
+    production = !!argv.production,
+    APIDeploy = require('/Users/dread/Apps/api-deploy').create('./api/api.json');
 
 console.log('ENV:', production ? 'Production' : 'Development');
 
@@ -60,3 +61,13 @@ gulp.task('watch', ['default'], function(){
 });
 
 gulp.task('default', ['scss', 'js']);
+
+// `gulp api-sdk` task that generates the SDK.
+gulp.task('api-sdk', function(done) {
+    APIDeploy.sdk(done);
+});
+
+// `gulp api-deploy` task that deploys your Lambdas.
+gulp.task('api-deploy', function(done) {
+    APIDeploy.deploy(argv.name, done);
+});

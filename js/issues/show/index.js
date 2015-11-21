@@ -1,5 +1,5 @@
 var Route = require('../../utils/route'),
-    transitionSpeed = 222,
+    API = require('../../../assets/sdk'),
     config = {
         templates: {
             index: require('./index.bars')
@@ -21,37 +21,30 @@ var Route = require('../../utils/route'),
                         .addClass('btn-green');
                 }
             },
-            sidebar: {
-                event: window.$.browser.event('click'),
-                target: '.show-sidebar',
+            submit: {
+                event: window.$.browser.event('submit'),
+                target: '.vote',
                 listener: function listener(e, $el) {
-                    var _ = this,
-                        $sidebar = _.$element.find('.sidebar'),
-                        $issue = _.$element.find('.issue');
+                    $el.prop('disabled', true);
 
-                    if (!$sidebar.hasClass('is-visible')) {
-                        $sidebar.addClass('is-visible');
-                        $('html, body').css('overflow', 'hidden');
+                    API.votesCreate({
+                        issueID: $el.attr('data-issue-id')
+                    }, function(err, data) {
+                        $el.prop('disabled', false);
 
-                        $sidebar.stop().animate({
-                            left: 0
-                        }, transitionSpeed);
+                        if (err) {
+                            alert(err.join(', '));
+                        } else {
+                            var $button = $el.find('button'),
+                                originalText = $button.text();
 
-                        $issue.stop().animate({
-                            'margin-left': $sidebar.width()
-                        }, transitionSpeed);
-                    } else {
-                        $sidebar.removeClass('is-visible');
-                        $('html, body').css('overflow', '');
+                            $button.text('Saved!');
 
-                        $sidebar.stop().animate({
-                            left: -$sidebar.width()
-                        }, transitionSpeed);
-
-                        $issue.stop().animate({
-                            'margin-left': 0
-                        }, transitionSpeed);
-                    }
+                            setTimeout(function() {
+                                $button.text(originalText);
+                            }, 1500);
+                        }
+                    });
 
                     return false;
                 }
@@ -65,7 +58,7 @@ var IssuesShow = Route.createElement(config, function IssuesShow(options) {
     _.beforeFilters = [
         function(done) {
             _.set('issue', _.app.issues[_.params.id]);
-            _.set('issues', _.app.issues);
+            _.app.get('issues') || _.set('issues', _.app.issues);
             done();
         }
     ];

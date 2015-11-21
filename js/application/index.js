@@ -1,4 +1,5 @@
 var Router = require('../utils/router'),
+    transitionSpeed = 222,
     config = {
         templates: {
             index: require('./index.bars')
@@ -6,6 +7,43 @@ var Router = require('../utils/router'),
         helpers: {
             eq: function(a, b) {
                 return a === b;
+            }
+        },
+        interactions: {
+            sidebar: {
+                event: window.$.browser.event('click'),
+                target: '.show-sidebar',
+                listener: function listener(e, $el) {
+                    var _ = this,
+                        $sidebar = _.$element.find('.sidebar'),
+                        $issue = _.$element.find('.issue');
+
+                    if (!$sidebar.hasClass('is-visible')) {
+                        $sidebar.addClass('is-visible');
+                        $('html, body').css('overflow', 'hidden');
+
+                        $sidebar.stop().animate({
+                            left: 0
+                        }, transitionSpeed);
+
+                        $issue.stop().animate({
+                            'margin-left': $sidebar.width()
+                        }, transitionSpeed);
+                    } else {
+                        $sidebar.removeClass('is-visible');
+                        $('html, body').css('overflow', '');
+
+                        $sidebar.stop().animate({
+                            left: -$sidebar.width()
+                        }, transitionSpeed);
+
+                        $issue.stop().animate({
+                            'margin-left': 0
+                        }, transitionSpeed);
+                    }
+
+                    return false;
+                }
             }
         }
     };

@@ -8,6 +8,12 @@
         <img src="assets/imgs/ca.png">
     </div>
 
+    {{#if app/user}}
+        <span data-go="/issues/suggest" class="item">
+            Suggest An Issue
+        </span>
+    {{/if}}
+
     {{#each app/issues}}
         <span data-go="/issues/{{id}}" class="item">
             {{title}}

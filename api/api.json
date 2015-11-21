@@ -1,0 +1,61 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Gov.vote",
+        "description": "",
+        "termsOfService": "http://gov.vote/terms",
+        "contact": {
+            "name": "Gov.vote"
+        },
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "host": "api.gov.vote",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "apiDeploy": {
+        "sdk": {
+            "name": "GovVote",
+            "path": "./sdk.js"
+        },
+        "defaults": {
+            "aws": {
+                "profile": "personal",
+                "region": "us-east-1",
+                "IdentityPoolId": ""
+            },
+            "lambda": {
+                "memorySize": 128,
+                "runtime": "nodejs",
+                "role": "arn:aws:iam::347191724861:role/Lambda",
+                "timeout": 60
+            }
+        }
+    },
+    "paths": {
+        "/issues/{id}/vote": {
+            "post": {
+                "apiDeploy": {
+                    "lambda": {
+                        "handler": "./api/issues/vote.js",
+                        "arn": "arn:aws:lambda:us-east-1:347191724861:function:GovVote-Api-Issues-Votejs"
+                    },
+                    "sdk": {
+                        "method": "votesCreate"
+                    }
+                },
+                "operationId": "GovVote-Api-Issues-Votejs"
+            }
+        }
+    }
+}
