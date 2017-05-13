@@ -1,0 +1,70 @@
+$green: #4CB409;
+
+stances {
+    display: block;
+}
+
+stance {
+    display: block;
+    margin-bottom: 40px;
+
+    h1 {
+        margin-bottom: 5px;
+        color: $blue;
+
+        .dot {
+            position: relative;
+            margin-bottom: -2px;
+            margin-right: 20px;
+            border-radius: 50%;
+            border: 2px solid $blue;
+            display: inline-block;
+            height: 0.9em;
+            width: 0.9em;
+
+            &:after {
+                content: ' ';
+                position: absolute;
+                border-radius: 50%;
+                background: $blue;
+                width: 70%;
+                height: 70%;
+                top: 15%;
+                left: 15%;
+            }
+        }
+    }
+
+    &.active {
+        h1 {
+            color: $green;
+        }
+
+        i {
+            color: $green;
+            border-color: $green;
+        }
+    }
+
+    stance-content {
+        display: block;
+        margin-left: 2.5em;
+
+        @media (max-width: 640px) {
+            margin-left: 2.6em;
+        }
+
+        @media (min-width: 1080px) {
+            margin-left: 2.2em;
+        }
+
+        .read-more {
+            font-family: Nunito, Helvetica, Arial, sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 70%;
+            display: inline-block;
+            margin-left: 1em;
+        }
+    }
+}

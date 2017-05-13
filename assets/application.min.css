@@ -1,0 +1,332 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media (max-width: 840px) {
+  .desktop-only {
+    display: none; } }
+
+@media (min-width: 840px) {
+  .mobile-only {
+    display: none; } }
+
+html, body {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+i, em {
+  font-style: italic; }
+
+b, strong {
+  font-weight: bold; }
+
+site-header {
+  font-family: Nunito, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 20px;
+  font-weight: 200;
+  display: block;
+  background: #26333A;
+  color: rgba(255, 255, 255, 0.67);
+  border-bottom: 3px solid #F80000;
+  letter-spacing: 2px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 15px;
+  z-index: 999; }
+  site-header .message {
+    display: block;
+    background: #708088;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 65%;
+    text-align: center; }
+    site-header .message .ellipsis {
+      width: 90%; }
+  site-header nav {
+    display: block; }
+    site-header nav:after {
+      content: ' ';
+      display: block;
+      clear: both; }
+    site-header nav ul {
+      float: left; }
+      site-header nav ul.meta {
+        float: right;
+        margin-top: 5px;
+        text-align: right; }
+      site-header nav ul li {
+        display: inline-block;
+        vertical-align: middle; }
+        site-header nav ul li a {
+          display: inline-block;
+          padding: 15px;
+          text-transform: uppercase;
+          font-size: 80%; }
+          site-header nav ul li a.highlight {
+            font-size: 120%;
+            color: #fff;
+            font-family: Palatino, Georgia, Times, serif;
+            background: #F80000;
+            font-weight: bold;
+            text-transform: none;
+            padding: 15px 30px;
+            letter-spacing: 0; }
+        site-header nav ul li.logo .mobile-only {
+          font-size: 140%;
+          height: 1em; }
+
+site-header-placeholder {
+  display: block;
+  height: 96px; }
+
+@media (max-width: 840px) {
+  site-header .meta {
+    width: 6em; }
+  site-header .core {
+    width: calc(100% - 6em); }
+    site-header .core .site-name {
+      max-width: calc(100% - 3em); }
+      site-header .core .site-name a {
+        max-width: 100%; } }
+
+.ellipsis {
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+sidebar {
+  display: block;
+  line-height: 1.6;
+  font-size: 20px;
+  font-weight: 200;
+  background: #fafafa;
+  position: fixed;
+  top: 96px;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  font-size: 16px;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 9; }
+  sidebar .divider, sidebar a {
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #eee; }
+    sidebar .divider:not(.divider):hover, sidebar a:not(.divider):hover {
+      background: #fff; }
+    sidebar .divider.active, sidebar a.active {
+      color: #F80000;
+      background: #fff; }
+    sidebar .divider span, sidebar a span {
+      font-family: Nunito, Helvetica, Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 120%; }
+    sidebar .divider small, sidebar a small {
+      font-family: Palatino, Georgia, Times, serif;
+      letter-spacing: 0;
+      display: block;
+      font-size: 80%;
+      line-height: 1.3;
+      opacity: 0.5;
+      margin-top: 4px; }
+  sidebar a {
+    color: #26333A; }
+  sidebar .divider {
+    font-family: Nunito, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 2px;
+    color: #26333A; }
+  @media (max-width: 840px) {
+    sidebar {
+      position: absolute;
+      width: 100%;
+      left: -100%; } }
+
+article {
+  display: block;
+  font-family: Palatino, Georgia, Times, serif;
+  margin-left: 280px;
+  line-height: 1.6;
+  font-size: 20px; }
+  article header {
+    position: relative;
+    display: block;
+    background: #484138;
+    background-size: cover;
+    background-position: 50% 50%;
+    overflow: hidden;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2); }
+    article header h1 {
+      color: #fff;
+      font-size: 222%; }
+    article header p {
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 10px; }
+    article header .bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.08;
+      width: 100%; }
+  article .container {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 80px 50px; }
+    @media (max-width: 640px) {
+      article .container {
+        padding: 50px 15px; } }
+  article .notice, article .notice-2, article .notice-3 {
+    font-family: Nunito, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 75%;
+    color: #F80000;
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 40px; }
+  article .notice-2 {
+    display: block;
+    margin-top: 80px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center; }
+  article .notice-3 {
+    margin-top: 50px; }
+  @media (max-width: 840px) {
+    article {
+      margin-left: 0; } }
+  @media (max-width: 1080px) {
+    article {
+      font-size: 100%; } }
+  @media (max-width: 640px) {
+    article {
+      font-size: 90%; } }
+
+content {
+  display: block; }
+  content h1, content h2, content h3, content h4, content h5, content h6, content p, content ul, content ol {
+    margin-bottom: 20px; }
+  content h1, content h3 {
+    font-family: Nunito, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 130%; }
+  content p {
+    font-size: 90%;
+    color: rgba(0, 0, 0, 0.6); }
+  content hr {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 0;
+    width: 100%;
+    margin-top: 1.5em; }
+
+stances {
+  display: block; }
+
+stance {
+  display: block;
+  margin-bottom: 40px; }
+  stance h1 {
+    margin-bottom: 5px;
+    color: #26333A; }
+    stance h1 .dot {
+      position: relative;
+      margin-bottom: -2px;
+      margin-right: 20px;
+      border-radius: 50%;
+      border: 2px solid #26333A;
+      display: inline-block;
+      height: 0.9em;
+      width: 0.9em; }
+      stance h1 .dot:after {
+        content: ' ';
+        position: absolute;
+        border-radius: 50%;
+        background: #26333A;
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%; }
+  stance.active h1 {
+    color: #4CB409; }
+  stance.active i {
+    color: #4CB409;
+    border-color: #4CB409; }
+  stance stance-content {
+    display: block;
+    margin-left: 2.5em; }
+    @media (max-width: 640px) {
+      stance stance-content {
+        margin-left: 2.6em; } }
+    @media (min-width: 1080px) {
+      stance stance-content {
+        margin-left: 2.2em; } }
+    stance stance-content .read-more {
+      font-family: Nunito, Helvetica, Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 70%;
+      display: inline-block;
+      margin-left: 1em; }

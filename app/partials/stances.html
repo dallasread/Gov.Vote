@@ -1,0 +1,38 @@
+<stances>
+    <!-- <p class="notice">
+        Read more about the issue &amp; check the stance you agree with:
+    </p> -->
+
+    {{#with issue=issue prefix=prefix}}
+        {{#each issue.stances}}
+            <stance>
+                <h1>
+                    <span class="dot"></span>
+                    <a href="#{{prefix}}/{{issue.permalink}}/{{@key}}">
+                        {{title}}
+                    </a>
+                </h1>
+
+                <stance-content>
+                    <p>
+                        {{description}}
+                        <a href="#{{prefix}}/{{issue.permalink}}/{{@key}}" class="read-more">Read More</a>
+                    </p>
+                </stance-content>
+            </stance>
+        {{/each}}
+    {{/with}}
+
+    <!--<stance>
+        <h1>
+            <span class="dot"></span>Add Your Stance
+        </h1>
+        <stance-content>
+            <p>
+                <hr>
+                <hr>
+                <hr>
+            </p>
+        </stance-content>
+    </stance>-->
+</stances>
