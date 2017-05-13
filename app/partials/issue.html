@@ -1,0 +1,35 @@
+<article>
+    <header style="background: {{issue.color}}">
+        <div class="container">
+            <h1>
+                {{#if @empty(issue.stances)}}Gov.Vote - {{/if}}
+                {{issue.title}}
+            </h1>
+
+            <p>{{issue.description}}</p>
+
+            <img src="../../assets/imgs/carbon.jpg" class="bg">
+        </div>
+    </header>
+
+    <content>
+        <div class="container">
+            {{#if issue.content}}
+                {{issue.content}}
+            {{/if}}
+
+            {{#if @any(issue.stances)}}
+                {{#if stance}}
+                    {{>stance}}
+                {{else}}
+                    {{>stances}}
+                {{/if}}
+            {{/if}}
+
+            <a class="notice-2">
+                Have something to say?<br>
+                Visit us on GitHub.
+            </a>
+        </div>
+    </content>
+</article>
