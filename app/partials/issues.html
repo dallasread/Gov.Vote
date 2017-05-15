@@ -1,0 +1,10 @@
+{{#with prefix=prefix issue=issue colored=colored}}
+    {{#each site.issues}}
+        <li>
+            <a href="#{{prefix}}/{{@key}}" class="{{issue.permalink === @key && 'active'}}">
+                <span>{{title}}</span>
+                <small>{{description}}</small>
+            </a>
+        </li>
+    {{/each}}
+{{/with}}

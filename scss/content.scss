@@ -24,4 +24,21 @@ content {
         width: 100%;
         margin-top: 1.5em;
     }
+
+    .issues {
+        a, .divider {
+            padding-left: 0;
+            padding-right: 0;
+            border-bottom: 0;
+            margin-bottom: 10px;
+        }
+
+        small {
+            font-size: 100%;
+        }
+    }
+
+    .md {
+        margin-bottom: 40px;
+    }
 }

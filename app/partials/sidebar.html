@@ -1,18 +1,9 @@
 <sidebar>
-    <ul>
+    <ul class="issues">
         <li class="divider">
             Issues
         </li>
 
-        {{#with prefix=prefix issue=issue}}
-            {{#each site.issues}}
-                <li>
-                    <a href="#{{prefix}}/{{@key}}" class="{{issue.permalink === @key && 'active'}}">
-                        <span>{{title}}</span>
-                        <small>{{description}}</small>
-                    </a>
-                </li>
-            {{/each}}
-        {{/with}}
+        {{>issues prefix=prefix issue=issue}}
     </ul>
 </sidebar>

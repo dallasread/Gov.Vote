@@ -1,6 +1,8 @@
 var path = require('path'),
     webpack = require('webpack'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    isProduction = process.argv.indexOf('-p') !== -1,
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    WriteJsonPlugin = require('write-json-webpack-plugin');
 
 var js = {
     entry: ['./index.js'],
@@ -12,7 +14,22 @@ var js = {
             { test: /\.png$/,  loader: 'url-loader?mimetype=image/png' },
             { test: /\.jpeg|\.jpg$/, loader: 'url-loader?mimetype=image/jpeg' }
         ],
+    },
+    node: {
+        fs: 'empty'
     }
+};
+
+var data = {
+    entry: ['./data/build.js'],
+    output: { filename: '../tmp/generate-data.js' },
+    target: 'node',
+    plugins: [
+        new WriteJsonPlugin({
+            object: require('./data/build'),
+            filename: './data/data.json'
+        })
+    ]
 };
 
 var css = {
@@ -29,4 +46,5 @@ var css = {
     ]
 };
 
-module.exports = [js, css];
+// module.exports = [data];
+module.exports = [js, css, data];

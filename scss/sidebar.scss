@@ -15,6 +15,14 @@ sidebar {
     -webkit-overflow-scrolling: touch;
     z-index: 9;
 
+    @media (max-width: 840px) {
+        position: absolute;
+        width: 100%;
+        left: -100%;
+    }
+}
+
+.issues {
     .divider, a {
         padding: 15px;
         display: block;
@@ -57,11 +65,5 @@ sidebar {
         font-size: 80%;
         letter-spacing: 2px;
         color: $blue;
-    }
-
-    @media (max-width: 840px) {
-        position: absolute;
-        width: 100%;
-        left: -100%;
     }
 }

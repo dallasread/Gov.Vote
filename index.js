@@ -1,9 +1,9 @@
 var App = require('./app'),
-    data = require('./data.json'),
+    data = require('./data/data.json'),
     app = new App({
         data: data
     });
 
-window.app = app;
+window.a =  data;
 
 document.body.appendChild(app.element);

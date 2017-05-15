@@ -23,6 +23,10 @@
   },
   "dependencies": {
     "browser-app-router": "^1.1.1",
-    "generate-js-custom-element": "Mike96Angelo/Custom-Element#rethought-again"
+    "fs": "0.0.1-security",
+    "generate-js-custom-element": "Mike96Angelo/Custom-Element#rethought-again",
+    "jquery": "^3.2.1",
+    "marked": "^0.3.6",
+    "write-json-webpack-plugin": "^1.0.0"
   }
 }

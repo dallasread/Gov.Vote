@@ -2,20 +2,22 @@
     <header style="background: {{issue.color}}">
         <div class="container">
             <h1>
-                {{#if @empty(issue.stances)}}Gov.Vote - {{/if}}
+                {{#if issue.issues}}Gov.Vote - {{/if}}
                 {{issue.title}}
             </h1>
 
             <p>{{issue.description}}</p>
 
-            <img src="../../assets/imgs/carbon.jpg" class="bg">
+            <img src="../../assets/imgs/bg.jpg" class="bg">
         </div>
     </header>
 
     <content>
         <div class="container">
             {{#if issue.content}}
-                {{issue.content}}
+                <div class="md">
+                    {{(issue.content)}}
+                </div>
             {{/if}}
 
             {{#if @any(issue.stances)}}
@@ -25,6 +27,12 @@
                     {{>stances}}
                 {{/if}}
             {{/if}}
+
+            <ul class="issues">
+                {{#if issue.issues}}
+                    {{>issues prefix=prefix issue=issue colored=true}}
+                {{/if}}
+            </ul>
 
             <a class="notice-2">
                 Have something to say?<br>

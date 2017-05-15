@@ -1,5 +1,7 @@
 var CustomElement = require('generate-js-custom-element'),
-    BrowserRouter = require('browser-app-router');
+    BrowserRouter = require('browser-app-router'),
+    marked = require('marked'),
+    $ = require('jquery');
 
 var App = CustomElement.createElement({
     template: require('./index.html'),
@@ -8,7 +10,8 @@ var App = CustomElement.createElement({
         header: require('./partials/header.html'),
         sidebar: require('./partials/sidebar.html'),
         stances: require('./partials/stances.html'),
-        stance: require('./partials/stance.html')
+        stance: require('./partials/stance.html'),
+        issues: require('./partials/issues.html')
     },
     transforms: {
         any: function any(obj) {
@@ -16,11 +19,14 @@ var App = CustomElement.createElement({
         },
         empty: function empty(obj) {
             return typeof obj !== 'object' || !Object.keys(obj).length;
+        },
+        md: function md(content) {
+            return marked(content);
         }
     }
 }, function App(options) {
     var _ = this,
-        $ = window.jQuery.noConflict();
+        isMobile = $(window).width() <= 640;
 
     CustomElement.call(_, options || {});
 
@@ -52,31 +58,37 @@ var App = CustomElement.createElement({
 
     router.start();
 
+    $el.on('click', '.toggle-sidebar', function() {
+        if (!isMobile) return;
+
+        if (parseInt($('sidebar').css('left'))) {
+            $('sidebar').animate({ left: 0 }, 150);
+        } else {
+            $('sidebar').animate({ left: '-100%' }, 150);
+        }
+
+        return false;
+    });
+
     $el.on('click', '[href][href!="#"]', function() {
         router.go( $(this).attr('href').replace(/^#/, '') );
 
         if ($(this).closest('sidebar').length) {
             if (parseInt($(this).closest('sidebar').css('width')) !== 280) {
                 $('sidebar').animate({ left: '-100%' }, 150);
+                return false;
             }
         }
-
-        return false;
-    });
-
-    $el.on('click', '.toggle-sidebar', function() {
-        $('sidebar').animate({ left: 0 }, 150);
-        return false;
     });
 });
 
 App.definePrototype({
     setSite: function setSite(lang, permalink) {
         var _ = this,
-            site = _.get(permalink + '.' + lang);
+            site = _.get(permalink + '.langs.' + lang);
 
         if (!site) {
-            _.setSite('en', 'ca');
+            _.setSite('en', 'global');
         } else {
             _.set('site', site);
             _.set('prefix', '/' + lang + '/' + permalink);
